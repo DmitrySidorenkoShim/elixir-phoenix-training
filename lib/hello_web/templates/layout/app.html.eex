@@ -1,0 +1,10 @@
+<main role="main" class="container">
+  <%= if Hello.UserManager.is_admin(@conn) do %>
+    <div id="messages"></div>
+  <% end %>
+  <br>
+  <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+  <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+  <%= @inner_content %>
+</main>

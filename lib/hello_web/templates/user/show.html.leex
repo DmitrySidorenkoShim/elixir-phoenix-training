@@ -1,0 +1,23 @@
+<h1>Show User</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Is admin:</strong>
+    <%= @user.is_admin %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.live_path(@socket, HelloWeb.UserLive.Edit, @user) %></span>
+<span><%= live_patch "Back", to: Routes.live_path(@socket, HelloWeb.UserLive.Index) %></span>

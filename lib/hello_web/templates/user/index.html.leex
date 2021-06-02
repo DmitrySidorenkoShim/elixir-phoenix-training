@@ -1,0 +1,32 @@
+
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Is admin</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for user <- @users do %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.is_admin %></td>
+
+      <td>
+        <span><%= live_patch "Show", to: Routes.live_path(@socket, HelloWeb.UserLive.Show, user) %></span>
+        <span><%= live_patch "Edit", to: Routes.live_path(@socket, HelloWeb.UserLive.Edit, user) %></span>
+        <span><%= live_patch "Delete", to: "#",
+         phx_click: "delete_user", phx_value_id: user.id %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New User", to: Routes.live_path(@socket, HelloWeb.UserLive.New) %></span>

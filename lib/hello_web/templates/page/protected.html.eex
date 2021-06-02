@@ -1,0 +1,9 @@
+<h2>Protected Page</h2>
+<p>You can only see this page if you are logged in</p>
+<p>You're logged in as <%= @current_user.name %></p>
+<br><br><br>
+<%= #live_render(@conn, HelloWeb.AuctionLive) %>
+<!-- <h1>Temperature Control</h1> -->
+<%= #live_render(@conn, HelloWeb.ThermostatLive) %>
+<!-- <button phx-click="inc_temperature">+</button> -->
+<br>
